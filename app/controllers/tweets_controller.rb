@@ -12,9 +12,7 @@ class TweetsController < ApplicationController
   # GET /tweets/1
   # GET /tweets/1.json
   def show
-    @tweet = Tweet.find(params[:id])
-    @comment = Comment.new
-    @comment.tweet_id = @tweet.id
+    redirect_to index
   end
 
   # GET /tweets/new

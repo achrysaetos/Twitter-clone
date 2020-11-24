@@ -23,25 +23,30 @@
   		</div>
   		<div class="media-content">
   			<div class="content">
-  				<strong><%= tweet.user.name %></strong><br />
-  				<small><%= tweet.user.username %></small><br/>
+  				<strong><%= tweet.user.name %></strong>
+  				<small>(@<%= tweet.user.username %>)</small><br/><br/>
   				<p><%= tweet.tweet %></p>
 			</div>
-			<%= render partial: 'comments/form' %>
-			<h3>Comments</h3>
-			<%= render partial: 'tweets/comment', collection: tweet.comments %>
+
         <% if user_signed_in? && current_user.id == tweet.user_id %>
   			<nav class="level">
-  				<div class="level-left is-mobile">
+  				<div class="level-left is-mobile" style="display: flex; justify-content: space-around;">
   					<%= link_to edit_tweet_path(tweet), class: "level-item" do %>
-  					  <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+  					  	<span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
   					<% end %>
   					<%= link_to tweet, method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" } do %>
-  							<span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+  						<span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
   					<% end %>
   				</div>
-  			</nav>
-        <% end %>
+			</nav>
+		<% end %>
+
+		
+		<hr> <%= render partial: 'tweets/comment', collection: tweet.comments %> <br>
+		<% if user_signed_in? %>
+			<%= render partial: 'comments/form', locals: {tweet_id: tweet.id, author: tweet.user.name} %>
+		<% end %>
+		
   		</div>
   	</article>
   </div>
