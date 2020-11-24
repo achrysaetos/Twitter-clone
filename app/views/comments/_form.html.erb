@@ -1,5 +1,5 @@
 <%= form_for [ @tweet = Tweet.find(tweet_id), @comment = Comment.new ] do |f| %>
     <%= f.hidden_field :author_name, :value => author %>
-    <%= f.text_field :body %>
-    <%= f.submit 'Submit' %>
+    <%= f.text_field :body, autocomplete: 'off', :class => 'comment' %>
+    <%= f.submit 'Reply', :class => 'send' %>
 <% end %>

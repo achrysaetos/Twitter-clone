@@ -27,10 +27,47 @@
 		border-radius: 50%;
 	}
 }
+
 .notification:not(:last-child) {
 	margin-bottom: 0;
 }
 
 hr{
 	border-top: 2px solid lightsteelblue;
+}
+
+.comment{
+	outline: none;
+	border: none;
+	background-color: rgba(176, 196, 222, 0.5);
+	border-radius: 10px;
+	height: 30px;
+	width: 79%;
+}
+.comment:focus{
+	outline: none;
+	border: none;
+	background-color: lightsteelblue;
+	border-radius: 10px;
+	height: 30px;
+	width: 79%;
+}
+
+.send{
+	outline: none;
+	border: none;
+	background-color: lightskyblue;
+	color: white;
+	border-radius: 10px;
+	height: 30px;
+	width: 20%;
+}
+.send:hover{
+	outline: none;
+	border: none;
+	background-color: #1da1f2;
+	color: white;
+	border-radius: 10px;
+	height: 30px;
+	width: 20%;
 }
