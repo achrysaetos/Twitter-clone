@@ -27,6 +27,7 @@
   				<small><%= tweet.user.username %></small><br/>
   				<p><%= tweet.tweet %></p>
 			</div>
+			<%= render partial: 'comments/form' %>
 			<h3>Comments</h3>
 			<%= render partial: 'tweets/comment', collection: tweet.comments %>
         <% if user_signed_in? && current_user.id == tweet.user_id %>
