@@ -44,7 +44,7 @@
 		
 		<hr> <%= render partial: 'tweets/comment', collection: tweet.comments %> <br>
 		<% if user_signed_in? %>
-			<%= render partial: 'comments/form', locals: {tweet_id: tweet.id, author: tweet.user.name} %>
+			<%= render partial: 'comments/form', locals: {tweet_id: tweet.id, author: current_user.name} %>
 		<% end %>
 		
   		</div>
