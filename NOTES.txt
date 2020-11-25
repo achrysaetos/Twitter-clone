@@ -1,0 +1,7 @@
+Functionalities:
+CREATE/EDIT/DELETE -- done!
+COMMENT -- done! Integrated from blog_app.
+LIKE -- not capped for users (otherwise would need to keep track of who liked what). Tweet would need a new like count.
+RETWEET -- need to get the author and the message. Tweet would need a new retweet count.
+FOLLOW/UNFOLLOW -- likely won't be implemented for some time 
+                    (would need to keep track of who followed who, and find some way to display the messages)
