@@ -45,12 +45,7 @@ hr{
 	width: 79%;
 }
 .comment:focus{
-	outline: none;
-	border: none;
 	background-color: lightsteelblue;
-	border-radius: 10px;
-	height: 30px;
-	width: 79%;
 }
 
 .send{
@@ -63,11 +58,25 @@ hr{
 	width: 20%;
 }
 .send:hover{
+	background-color: #1da1f2;
+}
+.send:active{
+	box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.follow{
 	outline: none;
 	border: none;
-	background-color: #1da1f2;
+	background-color: lightskyblue;
 	color: white;
 	border-radius: 10px;
-	height: 30px;
-	width: 20%;
+	margin-left: 10px;
+}
+.follow:hover{
+	background-color: #1da1f2;
+}
+.follow:active{
+	box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
