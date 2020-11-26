@@ -59,6 +59,7 @@ hr{
 }
 .send:hover{
 	background-color: #1da1f2;
+	cursor: pointer
 }
 .send:active{
 	box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
@@ -75,6 +76,7 @@ hr{
 }
 .follow:hover{
 	background-color: #1da1f2;
+	cursor: pointer
 }
 .follow:active{
 	box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),

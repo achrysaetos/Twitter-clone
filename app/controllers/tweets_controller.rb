@@ -72,6 +72,8 @@ class TweetsController < ApplicationController
     elsif params[:do] == "retweet"
       @tweet.retweets += 1
       @tweet.save
+      @newtweet = current_user.tweets.build(tweet: retweet_params)
+      @newtweet.save
     end
 
     redirect_to index
@@ -86,5 +88,8 @@ class TweetsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def tweet_params
       params.require(:tweet).permit(:tweet)
+    end
+    def retweet_params
+      params.require(:tweet)
     end
 end
