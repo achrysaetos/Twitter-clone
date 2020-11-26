@@ -27,17 +27,17 @@
 				<em>(@<%= tweet.user.username %>)</em>
 				<p><small><%= time_ago_in_words(tweet.created_at) %> ago</small></p>
 				<p><%= tweet.tweet %></p>
-				<p><small>0 likes | 0 retweets</small></p>
+				<p><small><%= tweet.likes %> likes | <%= tweet.retweets %> retweets</small></p>
 			</div>
 
         <% if user_signed_in? %>
 			<nav class="level">
 				<div class="level-left is-mobile" style="margin-bottom: -20px; display: flex">
 
-					<%= link_to edit_tweet_path(tweet), class: "level-item" do %>
+					<%= link_to root_path(:id => tweet.id), :method => :post, class: "level-item" do %>
 						<span class="icon" style="margin-left: 0px;"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
 					<% end %>
-					<%= link_to edit_tweet_path(tweet), class: "level-item" do %>
+					<%= link_to root_path(:id => tweet.id), :method => :post, class: "level-item" do %>
 						<span class="icon" style="margin-left: 30px;"><i class="fa fa-retweet" aria-hidden="true"></i></span>
 					<% end %>
 

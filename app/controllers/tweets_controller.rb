@@ -64,6 +64,14 @@ class TweetsController < ApplicationController
     end
   end
 
+  def update_likes
+    @tweet = Tweet.find(params[:id])
+    @tweet.likes += 1
+    @tweet.save
+      
+    redirect_to index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tweet
