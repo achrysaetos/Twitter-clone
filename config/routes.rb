@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  post "/", to: "tweets#update_likes"
+  post "/", to: "tweets#update_counts"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "tweets#index"
 end

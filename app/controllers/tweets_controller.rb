@@ -64,11 +64,16 @@ class TweetsController < ApplicationController
     end
   end
 
-  def update_likes
+  def update_counts
     @tweet = Tweet.find(params[:id])
-    @tweet.likes += 1
-    @tweet.save
-      
+    if params[:do] == "like"
+      @tweet.likes += 1
+      @tweet.save
+    elsif params[:do] == "retweet"
+      @tweet.retweets += 1
+      @tweet.save
+    end
+
     redirect_to index
   end
 

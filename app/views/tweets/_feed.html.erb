@@ -34,10 +34,10 @@
 			<nav class="level">
 				<div class="level-left is-mobile" style="margin-bottom: -20px; display: flex">
 
-					<%= link_to root_path(:id => tweet.id), :method => :post, class: "level-item" do %>
+					<%= link_to root_path(:id => tweet.id, :do => "like"), :method => :post, class: "level-item" do %>
 						<span class="icon" style="margin-left: 0px;"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
 					<% end %>
-					<%= link_to root_path(:id => tweet.id), :method => :post, class: "level-item" do %>
+					<%= link_to root_path(:id => tweet.id, :do => "retweet"), :method => :post, class: "level-item" do %>
 						<span class="icon" style="margin-left: 30px;"><i class="fa fa-retweet" aria-hidden="true"></i></span>
 					<% end %>
 
