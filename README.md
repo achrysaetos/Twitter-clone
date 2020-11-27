@@ -8,4 +8,4 @@ A fully functional Twitter clone, built with Ruby on Rails.
 
 **To reset the database:** run `rake db:reset db:migrate`
 
-*Screenshots comming soon!*
+*Screenshots coming soon!*
