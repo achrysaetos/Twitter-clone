@@ -1,0 +1,6 @@
+
+/* use tailwind to replace the original file contents*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
