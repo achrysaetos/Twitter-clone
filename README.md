@@ -1,4 +1,4 @@
-# realapp
+# Social Media App
 
 A fully functional social media web app, built with React, GraphQL, MongoDB, and Node.
 
