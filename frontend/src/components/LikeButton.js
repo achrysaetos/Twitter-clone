@@ -35,7 +35,7 @@ export default function LikeButton({ user, post: { id, likeCount, likes } }) {
   )
 
   return (
-    <Button as="div" labelPosition="right" onClick={likePost}> {/* call the mutation onClick */}
+    <Button as="div" labelPosition="right" onClick={likePost ? user : null}> {/* call the mutation onClick */}
       {likeButton}
       <Label basic color="teal" pointing="left">
         {likeCount}

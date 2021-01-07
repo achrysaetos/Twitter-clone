@@ -1,7 +1,8 @@
 import React, { useContext, useState, useRef } from "react"
 import { useQuery, useMutation } from "@apollo/react-hooks"
 import moment from "moment"
-import { Card, Form, Grid, Image, } from "semantic-ui-react"
+import { Link } from "react-router-dom"
+import { Card, Form, Grid, Image, Button, Icon, Label} from "semantic-ui-react"
 
 import { AuthContext } from "../context/auth"
 import LikeButton from "../components/LikeButton"
@@ -35,7 +36,7 @@ export default function SinglePost(props) {
   if (!getPost) {
     postMarkup = <p>Loading post..</p>
   } else { // destructure getPost so you can use all its variables
-    const { id, body, createdAt, username, comments, likes, likeCount } = getPost 
+    const { id, body, createdAt, username, comments, likes, likeCount, commentCount } = getPost 
 
     postMarkup = (
       <Grid>
@@ -53,6 +54,14 @@ export default function SinglePost(props) {
               <hr />
               <Card.Content extra>
                 <LikeButton user={user} post={{ id, likeCount, likes }} />
+                <Button labelPosition="right" as={Link} to={`/posts/${id}`}>
+                  <Button color="blue" basic>
+                    <Icon name="comments" />
+                  </Button>
+                  <Label basic color="blue" pointing="left">
+                    {commentCount}
+                  </Label>
+                </Button>
                 {user && user.username === username && (<DeleteButton postId={id} callback={deletePostCallback}/>)}
               </Card.Content>
             </Card>
@@ -65,6 +74,7 @@ export default function SinglePost(props) {
                     <div className="ui action input fluid">
                       <input
                         type="text"
+                        autocomplete="off"
                         placeholder="Comment.."
                         name="comment"
                         value={comment}

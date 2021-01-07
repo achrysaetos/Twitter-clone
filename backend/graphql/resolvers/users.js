@@ -25,8 +25,8 @@ module.exports = {
       }
       const match = await bcrypt.compare(password, user.password)
       if (!match) {
-        errors.general = "Wrong crendetials"
-        throw new UserInputError("Wrong crendetials", { errors })
+        errors.general = "Wrong password"
+        throw new UserInputError("Wrong password", { errors })
       }
 
       const token = generateToken(user) // create a new token for the user using jwt
@@ -34,6 +34,7 @@ module.exports = {
     },
 
     async register(_, { registerInput: { username, email, password, confirmPassword } }) {
+      // check valid input before checking the database
       const { valid, errors } = validateRegisterInput( username, email, password, confirmPassword )
 
       if (!valid) {
