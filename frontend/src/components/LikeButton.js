@@ -34,13 +34,24 @@ export default function LikeButton({ user, post: { id, likeCount, likes } }) {
     </Button>
   )
 
-  return (
-    <Button as="div" labelPosition="right" onClick={likePost ? user : null}> {/* call the mutation onClick */}
-      {likeButton}
-      <Label basic color="teal" pointing="left">
-        {likeCount}
-      </Label>
-    </Button>
-  )
+  if (user) {
+    return (
+      <Button as="div" labelPosition="right" onClick={likePost}> {/* call the mutation onClick */}
+        {likeButton}
+        <Label basic color="teal" pointing="left">
+          {likeCount}
+        </Label>
+      </Button>
+    )
+  } else {
+    return (
+      <Button as="div" labelPosition="right">
+        {likeButton}
+        <Label basic color="teal" pointing="left">
+          {likeCount}
+        </Label>
+      </Button>
+    )
+  }
   
 }
