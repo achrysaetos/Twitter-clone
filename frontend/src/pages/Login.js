@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react"
 import { Button, Form } from "semantic-ui-react"
 import { useMutation } from "@apollo/react-hooks"
+import { Heading } from "@chakra-ui/react"
 
 import { AuthContext } from "../context/auth"
 import { useForm } from "../util/hooks"
@@ -30,7 +31,7 @@ export default function Login(props) {
   return (
     <div className="form-container">
       <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}> {/* not actually submitted */}
-        <h1>Login</h1>
+        <Heading>Login</Heading>
         <Form.Input
           label="Username"
           placeholder="Username"

@@ -74,7 +74,7 @@ export default function SinglePost(props) {
                     <div className="ui action input fluid">
                       <input
                         type="text"
-                        autocomplete="off"
+                        autoComplete="off"
                         placeholder="Comment.."
                         name="comment"
                         value={comment}
