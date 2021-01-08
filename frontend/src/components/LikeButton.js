@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useMutation } from "@apollo/react-hooks"
-import { Button, Label, Icon } from "semantic-ui-react"
+import { Button } from "@chakra-ui/react"
+import { StarIcon } from "@chakra-ui/icons"
 
 import { LIKE_POST_MUTATION } from "../graphql/LIKE_POST_MUTATION"
 
@@ -20,38 +21,20 @@ export default function LikeButton({ user, post: { id, likeCount, likes } }) {
 
   const likeButton = user ? (
     liked ? ( // no proxy needed here because we're not accessing any cache, just changing the styles
-      <Button color="teal">
-        <Icon name="heart" />
+      <Button leftIcon={<StarIcon />} colorScheme="teal" minW="60px" maxW="60px" onClick={likePost}>
+        {likeCount}
       </Button>
     ) : (
-      <Button color="teal" basic>
-        <Icon name="heart" />
+      <Button leftIcon={<StarIcon />} colorScheme="teal" variant="outline" minW="60px" maxW="60px" onClick={likePost}>
+        {likeCount}
       </Button>
     )
   ) : (
-    <Button as={Link} to="/login" color="teal" basic>
-      <Icon name="heart" />
+    <Button leftIcon={<StarIcon />} colorScheme="teal" variant="outline" minW="60px" maxW="60px" as={Link} to="/login">
+      {likeCount}
     </Button>
   )
 
-  if (user) {
-    return (
-      <Button as="div" labelPosition="right" onClick={likePost}> {/* call the mutation onClick */}
-        {likeButton}
-        <Label basic color="teal" pointing="left">
-          {likeCount}
-        </Label>
-      </Button>
-    )
-  } else {
-    return (
-      <Button as="div" labelPosition="right">
-        {likeButton}
-        <Label basic color="teal" pointing="left">
-          {likeCount}
-        </Label>
-      </Button>
-    )
-  }
+  return likeButton
   
 }

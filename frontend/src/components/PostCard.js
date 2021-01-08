@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
-import { Button, Card, Icon, Label, Image } from "semantic-ui-react"
 import { Link } from "react-router-dom"
+import { Box, Flex, Text, Divider, Button } from "@chakra-ui/react"
+import { ChatIcon } from "@chakra-ui/icons"
 import moment from "moment"
 
 import { AuthContext } from "../context/auth"
@@ -14,29 +15,26 @@ export default function PostCard({
   const { user } = useContext(AuthContext)
 
   return (
-    <Card fluid>
-      <Card.Content>
-        <Image floated="right" size="mini" src="https://react.semantic-ui.com/images/avatar/large/molly.png"/>
-        <Card.Header>{username}</Card.Header>
-        <Card.Meta as={Link} to={`/posts/${id}`}>
-          {moment(createdAt).fromNow(true)}
-        </Card.Meta>
-        <Card.Description>{body}</Card.Description>
-      </Card.Content>
+    <Box p={12} my={3} width="50%" borderWidth={1} borderRadius={12} boxShadow="sm">
+      <Flex align="baseline">
+        <Text textTransform="uppercase" fontSize="lg" fontWeight="bold" color="teal.500" >
+          {username}
+        </Text>
+        <Text ml={1} fontSize="lg" fontWeight="light" as={Link} to={`/posts/${id}`}>
+          &bull; {moment(createdAt).fromNow()}
+        </Text>
+      </Flex>
 
-      <Card.Content extra>
-        <LikeButton user={user} post={{ id, likes, likeCount }} /> {/* components can call other components, of course */}
-        <Button labelPosition="right" as={Link} to={`/posts/${id}`}>
-          <Button color="blue" basic>
-            <Icon name="comments" />
-          </Button>
-          <Label basic color="blue" pointing="left">
-            {commentCount}
-          </Label>
+      <Text my={2}>{body}</Text>
+      <Divider />
+      <Box mt={4}>
+        <LikeButton user={user} post={{ id, likes, likeCount }}/>
+        <Button leftIcon={<ChatIcon />} colorScheme="teal" variant="outline" ml={4} minW="60px" maxW="60px">
+          {commentCount}
         </Button>
         {user && user.username === username && <DeleteButton postId={id} />}
-      </Card.Content>
-    </Card>
+      </Box>
+    </Box>
   )
   
 }

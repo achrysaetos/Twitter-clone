@@ -1,6 +1,6 @@
 import React from "react"
-import { Button, Form } from "semantic-ui-react"
 import { useMutation } from "@apollo/react-hooks"
+import { Box, Button, FormControl, Textarea } from "@chakra-ui/react"
 
 import { useForm } from "../util/hooks"
 import { FETCH_POSTS_QUERY } from "../graphql/FETCH_POSTS_QUERY"
@@ -26,31 +26,27 @@ export default function PostForm() {
   }
 
   return (
-    <>
-      <Form onSubmit={onSubmit}> {/* from useForm() */}
-        <h2>Create a post:</h2>
-        <Form.Field>
-          <Form.Input
-            placeholder="Hi World!"
+    <Box p={12} mb={3} width="50%" borderWidth={1} borderRadius={12} boxShadow="sm">
+      <form onSubmit={onSubmit} noValidate>
+        <FormControl>
+          <Textarea 
+            size="lg" 
+            variant="flushed"
+            focusBorderColor="grey"
+            autoComplete="off"
+            placeholder="What's on your mind?"
             name="body"
-            onChange={onChange} // from useForm()
-            value={values.body} // from useForm()
-            error={error ? true : false}
+            type="text"
+            value={values.body}
+            onChange={onChange}
           />
-          <Button type="submit" color="teal">
-            Submit
-          </Button>
-        </Form.Field>
-      </Form>
-      
-      {error && (
-        <div className="ui error message" style={{ marginBottom: 20 }}>
-          <ul className="list">
-            <li>{error.graphQLErrors[0].message}</li> {/* display any errors under the form */}
-          </ul>
-        </div>
-      )}
-    </>
+        </FormControl>
+        
+        <Button colorScheme="teal" variant="outline" width="full" mt={6} size="lg" type="submit">
+          Post
+        </Button>
+      </form>
+    </Box>
   )
   
 }
