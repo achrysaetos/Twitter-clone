@@ -7,6 +7,7 @@ import "semantic-ui-css/semantic.min.css"
 import "./App.css"
 import { AuthProvider } from "./context/auth"
 import AuthRoute from "./util/AuthRoute"
+import { theme } from "./theme"
 
 import MenuBar from "./components/MenuBar"
 import Home from "./pages/Home"
@@ -17,7 +18,7 @@ import SinglePost from "./pages/SinglePost"
 export default function App() {
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}> {/* use custom theme from theme.js */}
       <AuthProvider> {/* pass the user and the login/logout functions from ./context/auth.js, to set/remove the user token */}
         <Router> {/* to route to different pages in the pages folder */}
           <Container> {/* semantic ui class to create margins */}

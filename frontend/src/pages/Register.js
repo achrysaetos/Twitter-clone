@@ -96,7 +96,7 @@ export default function Register(props) { // exactly the same as ./Login.js
               </InputGroup>
             </FormControl>
             
-            <Button variant="outline" width="full" mt={9} size="lg" type="submit">
+            <Button colorScheme="teal" variant="outline" width="full" mt={9} size="lg" type="submit">
               Sign Up
             </Button>
             <Text mt={3} textAlign="center">

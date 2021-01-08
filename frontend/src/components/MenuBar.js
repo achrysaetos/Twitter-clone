@@ -1,16 +1,20 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import { Link } from "react-router-dom"
-import { Box, Heading, Flex, Text, Button } from "@chakra-ui/react"
+import { Box, Heading, Flex, Text, Button, IconButton } from "@chakra-ui/react"
+import { Menu, MenuButton, MenuList, MenuItem, MenuGroup, MenuDivider } from "@chakra-ui/react"
+import { AddIcon, BellIcon, ViewIcon, ChevronDownIcon } from "@chakra-ui/icons"
 
 import { AuthContext } from "../context/auth"
 
 export default function MenuBar() {
   const { user, logout } = useContext(AuthContext)
-  const pathname = window.location.pathname // the location object's url port
 
+  /* Set active tab in navbar
+  const pathname = window.location.pathname // the location object's url port
   const path = pathname === "/" ? "home" : pathname.substr(1) // path = name in pathname "/[name]"
   const [activeItem, setActiveItem] = useState(path)
   const handleItemClick = (e, { name }) => setActiveItem(name) // set the active item where the name matches the path
+  */
 
   const menuBar = user ? (
     <Flex as="nav" align="center" justify="space-between" wrap="wrap" w="100%" mb={6} p={6}>
@@ -21,13 +25,29 @@ export default function MenuBar() {
       </Flex>
 
       <Flex align="center">
+        <IconButton variant="outline" colorScheme="teal" icon={<AddIcon />} size="lg" mr={6} />
+        <IconButton variant="outline" colorScheme="teal" icon={<BellIcon />} size="lg" mr={6} />
+        <IconButton variant="outline" colorScheme="teal" icon={<ViewIcon />} size="lg" mr={6} />
 
-        <Button colorScheme="teal" variant="outline" size="lg" onClick={logout}>
-          Sign Out
-        </Button>
+        <Menu>
+          <MenuButton as={Button} colorScheme="teal" rightIcon={<ChevronDownIcon />} size="lg" mr={6}>
+            Profile
+          </MenuButton>
+          <MenuList>
+            <MenuGroup>
+              <MenuItem>Account</MenuItem>
+              <MenuItem>Help </MenuItem>
+              <MenuItem>Settings</MenuItem>
+            </MenuGroup>
+            <MenuDivider/>
+            <MenuItem onClick={logout}>Sign Out</MenuItem>
+          </MenuList>
+        </Menu>
       </Flex>
     </Flex>
+
   ) : (
+
     <Flex as="nav" align="center" justify="space-between" wrap="wrap" w="100%" mb={6} p={6}>
       <Flex align="center">
         <Heading size="lg" color="teal.500" as={Link} to="/" _hover={{ color: "teal.500" }}>
@@ -37,13 +57,13 @@ export default function MenuBar() {
 
       <Flex align="center">
         <Box display={{ sm: "none", md: "flex" }} width="auto">
-          <Text mr={6} fontSize="lg" _hover={{ color: "teal.500" }} as={Link} to="/login">
+          <Text mr={6} fontSize="lg" fontWeight="500" _hover={{ color: "teal.500" }} as={Link} to="/login">
             Docs
           </Text>
-          <Text mr={6} fontSize="lg" _hover={{ color: "teal.500" }} as={Link} to="/login">
+          <Text mr={6} fontSize="lg" fontWeight="500" _hover={{ color: "teal.500" }} as={Link} to="/login">
             Examples
           </Text>
-          <Text mr={6} fontSize="lg" _hover={{ color: "teal.500" }} as={Link} to="/login">
+          <Text mr={6} fontSize="lg" fontWeight="500" _hover={{ color: "teal.500" }} as={Link} to="/login">
             Blog
           </Text>
         </Box>

@@ -72,7 +72,7 @@ export default function Login(props) {
                 </Link>
             </Box>
             
-            <Button variant="outline" width="full" mt={6} size="lg" type="submit">
+            <Button colorScheme="teal" variant="outline" width="full" mt={6} size="lg" type="submit">
               Sign In
             </Button>
             <Text mt={3} textAlign="center">
