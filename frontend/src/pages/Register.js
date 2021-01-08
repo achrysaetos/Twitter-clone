@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react"
-import { Button, Form } from "semantic-ui-react"
 import { useMutation } from "@apollo/react-hooks"
+import { Link as aLink } from "react-router-dom"
+import { Heading, VStack, Box, FormControl, InputGroup, Input, Button, InputLeftElement, Link, Text, Alert, AlertIcon } from "@chakra-ui/react"
+import { EmailIcon, LockIcon } from '@chakra-ui/icons'
 
 import { AuthContext } from "../context/auth"
 import { useForm } from "../util/hooks"
@@ -33,60 +35,90 @@ export default function Register(props) { // exactly the same as ./Login.js
   }
 
   return (
-    <div className="form-container">
-      <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
-        <h1>Register</h1>
-        <Form.Input
-          label="Username"
-          placeholder="Username"
-          name="username"
-          type="text"
-          value={values.username}
-          error={errors.username ? true : false}
-          onChange={onChange}
-        />
-        <Form.Input
-          label="Email"
-          placeholder="Email"
-          name="email"
-          type="email"
-          value={values.email}
-          error={errors.email ? true : false}
-          onChange={onChange}
-        />
-        <Form.Input
-          label="Password"
-          placeholder="Password"
-          name="password"
-          type="password"
-          value={values.password}
-          error={errors.password ? true : false}
-          onChange={onChange}
-        />
-        <Form.Input
-          label="Confirm Password"
-          placeholder="Confirm Password"
-          name="confirmPassword"
-          type="password"
-          value={values.confirmPassword}
-          error={errors.confirmPassword ? true : false}
-          onChange={onChange}
-        />
-        <Button type="submit" primary>
-          Register
-        </Button>
-      </Form>
+    <VStack>
+      <Box p={12} width="50%" maxWidth="500px" borderWidth={1} borderRadius={12} boxShadow="lg">
+        <Box textAlign="center">
+          <Heading>Sign Up</Heading>
+        </Box>
 
-      {Object.keys(errors).length > 0 && (
-        <div className="ui error message">
-          <ul className="list">
-            {Object.values(errors).map((value) => (
-              <li key={value}>{value}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
+        <Box my={3} textAlign="left">
+          <form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
+            <FormControl>
+              <InputGroup size="lg" mt={6}>
+                <InputLeftElement pointerEvents="none" children={<EmailIcon color="gray.300"/>}/>
+                <Input 
+                  variant="flushed"
+                  focusBorderColor="grey"
+                  autoComplete="off"
+                  placeholder="Email"
+                  name="email"
+                  type="text"
+                  value={values.email}
+                  onChange={onChange}
+                />
+              </InputGroup>
+              <InputGroup size="lg" mt={6}>
+                <InputLeftElement pointerEvents="none" children={<EmailIcon color="gray.300"/>}/>
+                <Input 
+                  variant="flushed"
+                  focusBorderColor="grey"
+                  autoComplete="off"
+                  placeholder="Username"
+                  name="username"
+                  type="text"
+                  value={values.username}
+                  onChange={onChange}
+                />
+              </InputGroup>
+              <InputGroup size="lg" mt={6}>
+                <InputLeftElement pointerEvents="none" children={<LockIcon color="gray.300"/>}/>
+                <Input 
+                  variant="flushed"
+                  focusBorderColor="grey"
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                  value={values.password}
+                  onChange={onChange}
+                />
+              </InputGroup>
+              <InputGroup size="lg" mt={6}>
+                <InputLeftElement pointerEvents="none" children={<LockIcon color="gray.300"/>}/>
+                <Input 
+                  variant="flushed"
+                  focusBorderColor="grey"
+                  placeholder="Confirm Password"
+                  name="confirmPassword"
+                  type="password"
+                  value={values.confirmPassword}
+                  onChange={onChange}
+                />
+              </InputGroup>
+            </FormControl>
+            
+            <Button variant="outline" width="full" mt={9} size="lg" type="submit">
+              Sign Up
+            </Button>
+            <Text mt={3} textAlign="center">
+              Already have an account? 
+              <Link color="teal.500" ml={2} as={aLink} to="/login">
+                Sign in
+              </Link>
+            </Text>
+          </form>
+        </Box>
+      </Box>
+
+      <Box width="50%" maxWidth="500px" align="center" justifyContent="center">
+        {Object.keys(errors).length > 0 && (
+          Object.values(errors).map((value) => (
+            <Alert status="error" mt={2} borderRadius={12}>
+              <AlertIcon/> {value}
+            </Alert>
+          ))
+        )}
+      </Box>
+    </VStack>
   )
   
 }

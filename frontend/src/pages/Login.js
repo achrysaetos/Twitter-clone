@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react"
-import { Button, Form } from "semantic-ui-react"
 import { useMutation } from "@apollo/react-hooks"
-import { Heading } from "@chakra-ui/react"
+import { Link as aLink } from "react-router-dom"
+import { Heading, VStack, Box, FormControl, InputGroup, Input, Button, InputLeftElement, Link, Text, Alert, AlertIcon } from "@chakra-ui/react"
+import { EmailIcon, LockIcon } from '@chakra-ui/icons'
 
 import { AuthContext } from "../context/auth"
 import { useForm } from "../util/hooks"
@@ -27,44 +28,73 @@ export default function Login(props) {
   function loginUserCallback() { // lets you call loginUser() inside the useForm function above
     loginUser()
   }
-
-  return (
-    <div className="form-container">
-      <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}> {/* not actually submitted */}
-        <Heading>Login</Heading>
-        <Form.Input
-          label="Username"
-          placeholder="Username"
-          name="username"
-          type="text"
-          value={values.username}
-          error={errors.username ? true : false}
-          onChange={onChange} // change the value of the input in real time
-        />
-        <Form.Input
-          label="Password"
-          placeholder="Password"
-          name="password"
-          type="password"
-          value={values.password}
-          error={errors.password ? true : false}
-          onChange={onChange}
-        />
-        <Button type="submit" primary>
-          Login
-        </Button>
-      </Form>
-
-      {Object.keys(errors).length > 0 && ( // display the errors below if they exist
-        <div className="ui error message">
-          <ul className="list">
-            {Object.values(errors).map((value) => (
-              <li key={value}>{value}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  )
   
+  return(
+    <VStack>
+      <Box p={12} width="50%" maxWidth="500px" borderWidth={1} borderRadius={12} boxShadow="lg">
+        <Box textAlign="center">
+          <Heading>Sign In</Heading>
+        </Box>
+
+        <Box my={3} textAlign="left">
+          <form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
+            <FormControl>
+              <InputGroup size="lg" mt={6}>
+                <InputLeftElement pointerEvents="none" children={<EmailIcon color="gray.300"/>}/>
+                <Input 
+                  variant="flushed"
+                  focusBorderColor="grey"
+                  autoComplete="off"
+                  placeholder="Username"
+                  name="username"
+                  type="text"
+                  value={values.username}
+                  onChange={onChange}
+                />
+              </InputGroup>
+              <InputGroup size="lg" mt={6}>
+                <InputLeftElement pointerEvents="none" children={<LockIcon color="gray.300"/>}/>
+                <Input
+                  variant="flushed"
+                  focusBorderColor="grey"
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                  value={values.password}
+                  onChange={onChange}
+                />
+              </InputGroup>
+            </FormControl>
+
+            <Box mt={3} align="right">
+              <Link color="teal.500" as={aLink} to="/register">
+                Forgot Password?
+                </Link>
+            </Box>
+            
+            <Button variant="outline" width="full" mt={6} size="lg" type="submit">
+              Sign In
+            </Button>
+            <Text mt={3} textAlign="center">
+              Don’t have an account? 
+              <Link color="teal.500" ml={2} as={aLink} to="/register">
+                Sign up
+              </Link>
+            </Text>
+          </form>
+        </Box>
+      </Box>
+
+      <Box width="50%" maxWidth="500px" align="center" justifyContent="center">
+        {Object.keys(errors).length > 0 && (
+          Object.values(errors).map((value) => (
+            <Alert status="error" mt={2} borderRadius={12}>
+              <AlertIcon/> {value}
+            </Alert>
+          ))
+        )}
+      </Box>
+    </VStack>
+  )
+
 }

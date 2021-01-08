@@ -5,6 +5,7 @@
   "dependencies": {
     "@apollo/client": "^3.3.6",
     "@apollo/react-hooks": "^4.0.0",
+    "@chakra-ui/icons": "^1.0.2",
     "@chakra-ui/react": "^1.1.2",
     "@craco/craco": "^6.0.0",
     "@emotion/react": "^11.1.4",
