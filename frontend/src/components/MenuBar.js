@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
-import { Menu } from "semantic-ui-react"
 import { Link } from "react-router-dom"
+import { Box, Heading, Flex, Text, Button } from "@chakra-ui/react"
 
 import { AuthContext } from "../context/auth"
 
@@ -13,20 +13,46 @@ export default function MenuBar() {
   const handleItemClick = (e, { name }) => setActiveItem(name) // set the active item where the name matches the path
 
   const menuBar = user ? (
-    <Menu pointing secondary size="massive" color="teal">
-      <Menu.Item name={user.username} active as={Link} to="/" />
-      <Menu.Menu position="right">
-        <Menu.Item name="logout" onClick={logout} /> {/* logout from ../context/auth.js */}
-      </Menu.Menu>
-    </Menu>
+    <Flex as="nav" align="center" justify="space-between" wrap="wrap" w="100%" mb={6} p={6}>
+      <Flex align="center">
+        <Heading size="lg" color="teal.500" as={Link} to="/" _hover={{ color: "teal.500" }}>
+          ACHRYSAETOS
+        </Heading>
+      </Flex>
+
+      <Flex align="center">
+
+        <Button colorScheme="teal" variant="outline" size="lg" onClick={logout}>
+          Sign Out
+        </Button>
+      </Flex>
+    </Flex>
   ) : (
-    <Menu pointing secondary size="massive" color="teal">
-      <Menu.Item name="home" active={activeItem === "home"} onClick={handleItemClick} as={Link} to="/"/>
-      <Menu.Menu position="right">
-        <Menu.Item name="login" active={activeItem === "login"} onClick={handleItemClick} as={Link} to="/login"/>
-        <Menu.Item name="register" active={activeItem === "register"} onClick={handleItemClick} as={Link} to="/register"/>
-      </Menu.Menu>
-    </Menu>
+    <Flex as="nav" align="center" justify="space-between" wrap="wrap" w="100%" mb={6} p={6}>
+      <Flex align="center">
+        <Heading size="lg" color="teal.500" as={Link} to="/" _hover={{ color: "teal.500" }}>
+          ACHRYSAETOS
+        </Heading>
+      </Flex>
+
+      <Flex align="center">
+        <Box display={{ sm: "none", md: "flex" }} width="auto">
+          <Text mr={6} fontSize="lg" _hover={{ color: "teal.500" }} as={Link} to="/login">
+            Docs
+          </Text>
+          <Text mr={6} fontSize="lg" _hover={{ color: "teal.500" }} as={Link} to="/login">
+            Examples
+          </Text>
+          <Text mr={6} fontSize="lg" _hover={{ color: "teal.500" }} as={Link} to="/login">
+            Blog
+          </Text>
+        </Box>
+
+        <Button colorScheme="teal" variant="outline" size="lg" as={Link} to="/login">
+          Sign In
+        </Button>
+      </Flex>
+    </Flex>
   )
 
   return menuBar

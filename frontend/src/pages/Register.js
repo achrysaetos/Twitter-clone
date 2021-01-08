@@ -36,7 +36,7 @@ export default function Register(props) { // exactly the same as ./Login.js
 
   return (
     <VStack>
-      <Box p={12} width="50%" maxWidth="500px" borderWidth={1} borderRadius={12} boxShadow="lg">
+      <Box p={12} width={{ sm: "100%", md: "50%" }} borderWidth={1} borderRadius={12} boxShadow="lg">
         <Box textAlign="center">
           <Heading>Sign Up</Heading>
         </Box>
@@ -109,7 +109,7 @@ export default function Register(props) { // exactly the same as ./Login.js
         </Box>
       </Box>
 
-      <Box width="50%" maxWidth="500px" align="center" justifyContent="center">
+      <Box width={{ sm: "100%", md: "50%" }} align="center" justifyContent="center">
         {Object.keys(errors).length > 0 && (
           Object.values(errors).map((value) => (
             <Alert status="error" mt={2} borderRadius={12}>
