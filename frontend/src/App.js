@@ -13,7 +13,6 @@ import MenuBar from "./components/MenuBar"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
-import SinglePost from "./pages/SinglePost"
 
 export default function App() {
 
@@ -26,7 +25,6 @@ export default function App() {
             <Route exact path="/" component={Home} />
             <AuthRoute exact path="/login" component={Login} /> {/* redirect to home if user is logged in */}
             <AuthRoute exact path="/register" component={Register} /> {/* redirect to home if user is logged in */}
-            <Route exact path="/posts/:postId" component={SinglePost} />
           </Container>
         </Router>
       </AuthProvider>

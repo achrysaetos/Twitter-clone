@@ -1,7 +1,6 @@
 import React from "react"
 import { useMutation } from "@apollo/react-hooks"
-import { IconButton, Popover, PopoverTrigger, PopoverContent, PopoverArrow, Portal, Button} from "@chakra-ui/react"
-import { DeleteIcon } from "@chakra-ui/icons"
+import { Popover, PopoverTrigger, PopoverContent, PopoverArrow, Portal, Button, Text} from "@chakra-ui/react"
 
 import { FETCH_POSTS_QUERY } from "../graphql/FETCH_POSTS_QUERY"
 import { DELETE_COMMENT_MUTATION } from "../graphql/DELETE_COMMENT_MUTATION"
@@ -30,7 +29,7 @@ export default function DeleteButton({ postId, commentId, callback }) {
       {({ onClose }) => (
         <>
           <PopoverTrigger>
-            <IconButton icon={<DeleteIcon />} colorScheme="teal" variant="outline" float="right"/>
+            <Text float="right" _hover={{ color: "teal.500" }} fontSize="lg" cursor="pointer">&bull;&bull;&bull;</Text>
           </PopoverTrigger>
           <Portal>
             <PopoverContent _focus="outline: 0" p={2}>

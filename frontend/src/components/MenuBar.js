@@ -31,7 +31,7 @@ export default function MenuBar() {
 
         <Menu>
           <MenuButton as={Button} colorScheme="teal" rightIcon={<ChevronDownIcon />} size="lg" mr={6}>
-            {user.username.substr(0, 1)}
+            {user.username.substr(0, 1).toUpperCase()}
           </MenuButton>
           <MenuList>
             <MenuGroup>
