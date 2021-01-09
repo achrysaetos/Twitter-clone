@@ -20,16 +20,16 @@ export default function PostCard({
         <Text textTransform="uppercase" fontSize="lg" fontWeight="bold" color="teal.500" >
           {username}
         </Text>
-        <Text ml={1} fontSize="lg" fontWeight="light" as={Link} to={`/posts/${id}`}>
+        <Text ml={1} fontSize="lg" fontWeight="light">
           &bull; {moment(createdAt).fromNow()}
         </Text>
       </Flex>
 
-      <Text my={2}>{body}</Text>
+      <Text my={4} fontSize="lg">{body}</Text>
       <Divider />
       <Box mt={4}>
         <LikeButton user={user} post={{ id, likes, likeCount }}/>
-        <Button leftIcon={<ChatIcon />} colorScheme="teal" variant="outline" ml={4} minW="60px" maxW="60px">
+        <Button leftIcon={<ChatIcon />} colorScheme="teal" variant="outline" ml={4} minW="60px" maxW="60px" as={Link} to={`/posts/${id}`}>
           {commentCount}
         </Button>
         {user && user.username === username && <DeleteButton postId={id} />}

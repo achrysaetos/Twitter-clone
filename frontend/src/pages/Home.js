@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { useQuery } from "@apollo/react-hooks" // courtesy of ApolloProvider
-import { Grid } from "semantic-ui-react"
+import { VStack, Spinner } from "@chakra-ui/react"
 
 import { AuthContext } from "../context/auth"
 import PostCard from "../components/PostCard"
@@ -12,28 +12,17 @@ export default function Home() {
   const { loading, data } = useQuery(FETCH_POSTS_QUERY) // get the output from the graphql query
 
   return (
-    <Grid columns={1}>
-      <Grid.Row className="page-title">
-        <h1 className="text-pink-400">Recent Posts</h1>
-      </Grid.Row>
-      <Grid.Row>
-        {user && ( // show the PostForm component if the user is logged in
-          <Grid.Column>
-            <PostForm />
-          </Grid.Column>
-        )}
-        {loading ? (
-          <h1>Loading posts..</h1>
-        ) : (
-          data.getPosts &&
-          data.getPosts.map((post) => ( // create a PostCard component for every post
-            <Grid.Column key={post.id}>
-              <PostCard post={post} />
-            </Grid.Column>
-          ))
-        )}
-      </Grid.Row>
-    </Grid>
+    <VStack>
+      {user && <PostForm />}
+      {loading ? (
+        <Spinner size="xl" />
+      ) : (
+        data.getPosts &&
+        data.getPosts.map((post) => (
+          <PostCard post={post} key={post.id}/>
+        ))
+      )}
+    </VStack>
   )
   
 }

@@ -31,7 +31,7 @@ export default function MenuBar() {
 
         <Menu>
           <MenuButton as={Button} colorScheme="teal" rightIcon={<ChevronDownIcon />} size="lg" mr={6}>
-            Profile
+            {user.username.substr(0, 1)}
           </MenuButton>
           <MenuList>
             <MenuGroup>
