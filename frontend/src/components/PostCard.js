@@ -73,35 +73,47 @@ export default function PostCard({
                 <Button leftIcon={<ChatIcon />} colorScheme="teal" variant="outline" ml={4} minW="60px" maxW="60px" onClick={onClose}>
                   {commentCount}
                 </Button>
-                <Divider my={4}/>
-                <Box width="full">
-                  <Flex alignItems="flex-end" justify="space-between">
-                    <FormControl w="75%">
-                      <Input 
-                        size="lg" 
-                        focusBorderColor="grey"
-                        autoComplete="off"
-                        placeholder="Write a comment..."
-                        name="comment"
-                        type="text"
-                        value={comment}
-                        onChange={(event) => setComment(event.target.value)}
-                        ref={commentInputRef}
-                      />
-                    </FormControl>
-                    <Button colorScheme="teal" variant="outline" w="20%" size="lg" type="submit" disabled={comment.trim() === ""} onClick={submitComment}>
-                      Post
-                    </Button>
-                  </Flex>
-                </Box>
+                { user ? 
+                  <>
+                    <Divider my={4}/>
+                    <Box width="full">
+                      <Flex alignItems="flex-end" justify="space-between">
+                        <FormControl w="75%">
+                          <Input 
+                            size="lg" 
+                            focusBorderColor="grey"
+                            autoComplete="off"
+                            placeholder="Write a comment..."
+                            name="comment"
+                            type="text"
+                            value={comment}
+                            onChange={(event) => setComment(event.target.value)}
+                            ref={commentInputRef}
+                          />
+                        </FormControl>
+                        <Button 
+                          colorScheme="teal" 
+                          variant="outline" 
+                          w="20%" 
+                          size="lg" 
+                          type="submit" 
+                          disabled={comment.trim() === ""} 
+                          onClick={submitComment}
+                        >
+                          Post
+                        </Button>
+                      </Flex>
+                    </Box>
+                  </> 
+                : "" }
               </ModalBody>
               
               <ModalFooter>
                 <Box width="full">
                   <Divider/>
                   {comments.map((comment) => (
-                    <Box p={3} my={3} borderWidth={1} borderRadius={6} boxShadow="sm">
-                      <Flex align="baseline" key={comment.id}>
+                    <Box p={3} my={3} borderWidth={1} borderRadius={6} boxShadow="sm" key={comment.id}>
+                      <Flex align="baseline">
                         <Text textTransform="uppercase" fontSize="lg" fontWeight="bold" color="teal.500" >
                           {comment.username}
                         </Text>
