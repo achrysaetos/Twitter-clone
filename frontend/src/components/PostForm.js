@@ -26,7 +26,7 @@ export default function PostForm() {
   }
 
   return (
-    <Box p={12} mb={3} width="50%" borderWidth={1} borderRadius={12} boxShadow="sm">
+    <Box p={12} mb={3} width={{ sm:"100%", md:"50%"}} minW="325px" borderWidth={1} borderRadius={12} boxShadow="sm">
       <form onSubmit={onSubmit} noValidate>
         <FormControl>
           <Textarea 
