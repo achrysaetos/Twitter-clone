@@ -8,7 +8,7 @@ import { AuthContext } from "../context/auth"
 
 export default function MenuBar() {
   const { user, logout } = useContext(AuthContext)
-
+  
   /* Set active tab in navbar
   const pathname = window.location.pathname // the location object's url port
   const path = pathname === "/" ? "home" : pathname.substr(1) // path = name in pathname "/[name]"
@@ -58,13 +58,13 @@ export default function MenuBar() {
       <Flex align="center">
         <Box display={{ sm: "none", md: "flex" }} width="auto">
           <Text mr={6} fontSize="lg" fontWeight="500" _hover={{ color: "teal.500" }} as={Link} to="/login">
-            Docs
+            Products
           </Text>
           <Text mr={6} fontSize="lg" fontWeight="500" _hover={{ color: "teal.500" }} as={Link} to="/login">
-            Examples
+            Features
           </Text>
           <Text mr={6} fontSize="lg" fontWeight="500" _hover={{ color: "teal.500" }} as={Link} to="/login">
-            Blog
+            Pricing
           </Text>
         </Box>
 

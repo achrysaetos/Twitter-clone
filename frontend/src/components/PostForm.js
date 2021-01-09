@@ -9,7 +9,7 @@ import { CREATE_POST_MUTATION } from "../graphql/CREATE_POST_MUTATION"
 export default function PostForm() {
   const { values, onChange, onSubmit } = useForm(createPostCallback, { body: "" })
 
-  const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, { // call the mutation
+  const [createPost] = useMutation(CREATE_POST_MUTATION, { // call the mutation
     variables: values,
     update(proxy, result) {
       const data = proxy.readQuery({ query: FETCH_POSTS_QUERY }) // execute the query without re-rendering
@@ -42,7 +42,7 @@ export default function PostForm() {
           />
         </FormControl>
         
-        <Button colorScheme="teal" variant="outline" width="full" mt={6} size="lg" type="submit">
+        <Button colorScheme="teal" variant="outline" width="full" mt={6} size="lg" type="submit" disabled={values.body.trim() === ""}>
           Post
         </Button>
       </form>
