@@ -9,10 +9,7 @@ import { AuthContext } from "../context/auth"
 import LikeButton from "./LikeButton"
 import { SUBMIT_COMMENT_MUTATION } from "../graphql/SUBMIT_COMMENT_MUTATION"
 
-export default function CommentButton({
-    // destructure the post to easily access all its parts
-    post: { body, createdAt, id, username, likeCount, commentCount, likes, comments }
-  }) {
+export default function CommentButton({ post: { body, createdAt, id, username, likeCount, commentCount, likes, comments } }) {
     const { user } = useContext(AuthContext)
     const postId = id
     const commentInputRef = useRef(null) // returns a mutable ref object whose .current property is initialized to null
