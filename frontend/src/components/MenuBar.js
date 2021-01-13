@@ -57,13 +57,13 @@ export default function MenuBar() {
 
       <Flex align="center">
         <Box display={{ sm: "none", md: "flex" }} width="auto">
-          <Text mr={6} fontSize="lg" fontWeight="500" _hover={{ color: "teal.500" }} as={Link} to="/login">
+          <Text mr={6} fontSize="lg" fontWeight="500" _hover={{ color: "teal.500" }} as={Link} to="/">
             Products
           </Text>
-          <Text mr={6} fontSize="lg" fontWeight="500" _hover={{ color: "teal.500" }} as={Link} to="/login">
+          <Text mr={6} fontSize="lg" fontWeight="500" _hover={{ color: "teal.500" }} as={Link} to="/">
             Features
           </Text>
-          <Text mr={6} fontSize="lg" fontWeight="500" _hover={{ color: "teal.500" }} as={Link} to="/login">
+          <Text mr={6} fontSize="lg" fontWeight="500" _hover={{ color: "teal.500" }} as={Link} to="/">
             Pricing
           </Text>
         </Box>
