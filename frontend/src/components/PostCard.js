@@ -14,7 +14,7 @@ export default function PostCard({
   const { user } = useContext(AuthContext)
 
   return (
-    <Box p={12} my={3} width={{ sm:"100%", md:"50%"}} minW="325px" borderWidth={1} borderRadius={12} boxShadow="sm">
+    <Box p={12} my={3} minW="550px" borderWidth={1} borderRadius={12} boxShadow="sm">
       <Flex align="baseline" justify="space-between">
         <Flex align="baseline">
           <Text textTransform="uppercase" fontSize="lg" fontWeight="bold" color="teal.500" >
