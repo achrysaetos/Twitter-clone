@@ -112,7 +112,7 @@ export default function Register(props) { // exactly the same as ./Login.js
       <Box width={{ sm: "100%", md: "50%" }} align="center" justifyContent="center">
         {Object.keys(errors).length > 0 && (
           Object.values(errors).map((value) => (
-            <Alert status="error" mt={2} borderRadius={12}>
+            <Alert status="error" mt={2} borderRadius={12} key={value}>
               <AlertIcon/> {value}
             </Alert>
           ))

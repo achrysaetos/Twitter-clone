@@ -99,7 +99,7 @@ export default function CommentButton({ post: { body, createdAt, id, username, l
                       &bull; {moment(comment.createdAt).fromNow()}
                     </Text>
                   </Flex>
-                  <Text my={1}>{comment.body}</Text>
+                  <Text my={1} fontSize="lg">{comment.body}</Text>
                 </Box>
               ))}
             </Box>

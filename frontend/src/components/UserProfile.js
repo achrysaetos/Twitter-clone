@@ -11,7 +11,7 @@ export default function UserProfile({ user }){
   if (loading) return "loading" // always check loading when working with queries
   else {
     return (
-      <Box p={12} minW="325px" h="400px" borderWidth={1} borderRadius={12} boxShadow="sm">
+      <Box p={12} minW="325px" maxW="325px" h="400px" borderWidth={1} borderRadius={12} boxShadow="sm">
         <Box align="center" justifyContent="center" >
           <Avatar size="2xl" name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
         </Box>
