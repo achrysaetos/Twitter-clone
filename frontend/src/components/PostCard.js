@@ -3,9 +3,9 @@ import { Box, Flex, Text, Divider } from "@chakra-ui/react"
 import moment from "moment"
 
 import { AuthContext } from "../context/auth"
-import LikeButton from "./LikeButton"
-import DeleteButton from "./DeleteButton"
-import CommentButton from "./CommentButton"
+import LikeButton from "./postcard/LikeButton"
+import DeleteButton from "./postcard/DeleteButton"
+import CommentButton from "./postcard/CommentButton"
 
 export default function PostCard({
   // destructure the post to easily access all its parts

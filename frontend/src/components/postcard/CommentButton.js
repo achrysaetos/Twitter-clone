@@ -5,9 +5,9 @@ import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHea
 import { ChatIcon } from "@chakra-ui/icons"
 import moment from "moment"
 
-import { AuthContext } from "../context/auth"
+import { AuthContext } from "../../context/auth"
 import LikeButton from "./LikeButton"
-import { SUBMIT_COMMENT_MUTATION } from "../graphql/SUBMIT_COMMENT_MUTATION"
+import { SUBMIT_COMMENT_MUTATION } from "../../graphql/SUBMIT_COMMENT_MUTATION"
 
 export default function CommentButton({ post: { body, createdAt, id, username, likeCount, commentCount, likes, comments } }) {
     const { user } = useContext(AuthContext)

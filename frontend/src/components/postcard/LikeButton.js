@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/react-hooks"
 import { Button } from "@chakra-ui/react"
 import { StarIcon } from "@chakra-ui/icons"
 
-import { LIKE_POST_MUTATION } from "../graphql/LIKE_POST_MUTATION"
+import { LIKE_POST_MUTATION } from "../../graphql/LIKE_POST_MUTATION"
 
 export default function LikeButton({ user, post: { id, likeCount, likes } }) {
   const [liked, setLiked] = useState(false) // liked is initially false, use setLiked to change it
