@@ -9,7 +9,7 @@ import UserProfile from "../components/User"
 import Discover from "../components/Discover"
 import { FETCH_POSTS_QUERY } from "../graphql/FETCH_POSTS_QUERY"
 
-export default function Home() {
+export default function Profile() {
   const { user } = useContext(AuthContext)
   const { loading, data } = useQuery(FETCH_POSTS_QUERY) // get the output from the graphql query
 

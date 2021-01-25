@@ -11,6 +11,7 @@ import { theme } from "./theme"
 
 import MenuBar from "./components/MenuBar"
 import Home from "./pages/Home"
+import Profile from "./pages/Profile"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 
@@ -23,6 +24,7 @@ export default function App() {
           <Container> {/* semantic ui class to create margins */}
             <MenuBar />
             <Route exact path="/" component={Home} />
+            <Route exact path="/profile" component={Profile} />
             <AuthRoute exact path="/login" component={Login} /> {/* redirect to home if user is logged in */}
             <AuthRoute exact path="/register" component={Register} /> {/* redirect to home if user is logged in */}
           </Container>

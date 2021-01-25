@@ -5,7 +5,7 @@ import moment from "moment"
 
 import { FETCH_USER_QUERY } from "../graphql/FETCH_USER_QUERY"
 
-export default function UserProfile({ user }){
+export default function User({ user }){
   const { loading, data } = useQuery(FETCH_USER_QUERY, { variables: { userId: user.id }})
 
   if (loading) return "loading" // always check loading when working with queries

@@ -7,11 +7,20 @@ const { SECRET_KEY } = require("../../config")
 const User = require("../../models/User")
 
 function generateToken(user) {
-  return jwt.sign({ id: user.id, email: user.email, username: user.username }, SECRET_KEY, { expiresIn: "1h" })
+  return jwt.sign({ id: user.id, email: user.email, username: user.username }, SECRET_KEY, { expiresIn: "24h" })
 }
 
 module.exports = {
   Query: {
+    async getUsers() {
+      try {
+        const users = await User.find().sort({ createdAt: -1 }) // latest posts first
+        return users
+      } catch (err) {
+        throw new Error(err)
+      }
+    },
+
     async getUser(_, { userId }) {
       try {
         const user = await User.findById(userId)
@@ -25,6 +34,7 @@ module.exports = {
       }
     }
   },
+
   Mutation: {
     async login(_, { username, password }) {
       const { errors, valid } = validateLoginInput(username, password) // catches errors in login input strings
