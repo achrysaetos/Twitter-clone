@@ -1,7 +1,7 @@
 import React from "react"
 import { useQuery } from "@apollo/react-hooks"
 import { Box, Avatar, Text, Divider, Flex } from "@chakra-ui/react"
-import moment from "moment"
+import { Link as ProfileLink } from "react-router-dom"
 
 import { FETCH_USERS_QUERY } from "../graphql/FETCH_USERS_QUERY"
 
@@ -20,7 +20,7 @@ export default function Discover(){
               <Flex align="center">
                 <Avatar size="lg" name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
                 <Box ml={4}>
-                  <Text fontSize="lg" fontWeight="semibold" color="teal.500">{user.username}</Text>
+                  <Text fontSize="lg" fontWeight="semibold" color="teal.500" as={ProfileLink} to="/profile">{user.username}</Text>
                   <Text fontSize="lg" fontWeight="light">@{user.username}</Text>
                 </Box>
               </Flex>

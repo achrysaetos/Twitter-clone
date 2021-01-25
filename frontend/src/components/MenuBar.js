@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { Box, Heading, Flex, Text, Button } from "@chakra-ui/react"
 import { Menu, MenuButton, MenuList, MenuItem, MenuGroup, MenuDivider } from "@chakra-ui/react"
 import { ChevronDownIcon } from "@chakra-ui/icons"
+import { Link as ProfileLink } from "react-router-dom"
 
 import { AuthContext } from "../context/auth"
 import NotificationBtn from "./menubar/NotificationBtn"
@@ -38,12 +39,12 @@ export default function MenuBar() {
           </MenuButton>
           <MenuList>
             <MenuGroup>
-              <MenuItem>Account</MenuItem>
-              <MenuItem>Help </MenuItem>
-              <MenuItem>Settings</MenuItem>
+              <MenuItem as={ProfileLink} to="/profile">Account</MenuItem>
+              <MenuItem as={ProfileLink} to="/profile">Help </MenuItem>
+              <MenuItem as={ProfileLink} to="/profile">Settings</MenuItem>
             </MenuGroup>
             <MenuDivider/>
-            <MenuItem onClick={logout}>Sign Out</MenuItem>
+            <MenuItem onClick={logout} as={ProfileLink} to="/home">Sign Out</MenuItem>
           </MenuList>
         </Menu>
       </Flex>

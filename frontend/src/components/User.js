@@ -1,7 +1,8 @@
 import React from "react"
 import { useQuery } from "@apollo/react-hooks"
-import { Box, Avatar, Text } from "@chakra-ui/react"
+import { Box, Avatar, Text, Flex } from "@chakra-ui/react"
 import moment from "moment"
+import { Link as ProfileLink } from "react-router-dom"
 
 import { FETCH_USER_QUERY } from "../graphql/FETCH_USER_QUERY"
 
@@ -12,18 +13,19 @@ export default function User({ user }){
   else {
     return (
       <Box p={12} minW="325px" maxW="325px" h="400px" borderWidth={1} borderRadius={12} boxShadow="sm">
-        <Box align="center" justifyContent="center" >
+        <Flex direction="column" align="center">
           <Avatar size="2xl" name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
-        </Box>
-        <Text align="center" justifyContent="center" mb={3} mt={6} fontSize="2xl" fontWeight="semibold" color="teal.500" > 
-          @{data.getUser.username} 
-        </Text>
-        <Text align="center" justifyContent="center" my={3} fontSize="xl" fontWeight="light" > 
-          Email: {data.getUser.email} 
-        </Text>
-        <Text align="center" justifyContent="center" my={3} fontSize="xl" fontWeight="light" > 
-          Joined: {moment(data.getUser.createdAt).format("LL")} 
-        </Text>
+
+          <Text mb={3} mt={6} fontSize="2xl" fontWeight="semibold" color="teal.500" as={ProfileLink} to="/profile"> 
+            @{data.getUser.username} 
+          </Text>
+          <Text mb={3} fontSize="xl" fontWeight="light" > 
+            Email: {data.getUser.email} 
+          </Text>
+          <Text mb={3} fontSize="xl" fontWeight="light" > 
+            Joined: {moment(data.getUser.createdAt).format("LL")} 
+          </Text>
+        </Flex>
       </Box>
     )
   }
