@@ -19,7 +19,7 @@ export default function Follows({user}){
         <TabPanels>
           <TabPanel>
             {data?.getUser.following.map((target) => 
-              <>
+              <Box key={target.id}>
                 <Flex align="center">
                   <Avatar size="lg" name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
                   <Box ml={4}>
@@ -27,14 +27,15 @@ export default function Follows({user}){
                     <Text fontSize="lg" fontWeight="light">@{target.username}</Text>
                   </Box>
                 </Flex>
+
                 <Divider my={2}/>
-              </>
+              </Box>
             )}
           </TabPanel>
 
           <TabPanel>
             {data?.getUser.followers.map((target) => 
-              <>
+              <Box key={target.id}>
                 <Flex align="center">
                   <Avatar size="lg" name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
                   <Box ml={4}>
@@ -42,8 +43,9 @@ export default function Follows({user}){
                     <Text fontSize="lg" fontWeight="light">@{target.username}</Text>
                   </Box>
                 </Flex>
+                
                 <Divider my={2}/>
-              </>
+              </Box>
             )}
           </TabPanel>
         </TabPanels>

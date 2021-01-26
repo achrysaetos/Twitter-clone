@@ -13,7 +13,7 @@ export default function Discover(){
       <Text fontSize="xl" fontWeight="bold">You might like</Text>
       <Divider my={2}/>
       {data?.getUsers.map((target) => // same as data.getUsers && data.getUsers.map
-        <>
+        <Box key={target.id}>
           <Flex align="center">
             <Avatar size="lg" name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
             <Box ml={4}>
@@ -21,8 +21,9 @@ export default function Discover(){
               <Text fontSize="lg" fontWeight="light">@{target.username}</Text>
             </Box>
           </Flex>
+          
           <Divider my={2}/>
-        </>
+        </Box>
       )}
     </Box>
   )

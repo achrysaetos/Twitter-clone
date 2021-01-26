@@ -12,6 +12,7 @@ import { FETCH_USER_FROM_USERNAME } from "../graphql/FETCH_USER_QUERY"
 export default function Profile(props) {
   const { user } = useContext(AuthContext)
   const { loading: loading_post, data: post_data } = useQuery(FETCH_POSTS_QUERY)
+  
   const target_username = props.match.params.target_username
   const { loading: loading_user, data: user_data } = useQuery(FETCH_USER_FROM_USERNAME, { variables: { username: target_username }})
 
