@@ -8,7 +8,7 @@ import { Link as ProfileLink } from "react-router-dom"
 
 import { AuthContext } from "../../context/auth"
 import LikeButton from "./LikeButton"
-import { SUBMIT_COMMENT_MUTATION } from "../../graphql/SUBMIT_COMMENT_MUTATION"
+import { CREATE_COMMENT_MUTATION } from "../../graphql/CREATE_COMMENT_MUTATION"
 
 export default function CommentButton({ post: { body, createdAt, id, username, likeCount, commentCount, likes, comments } }) {
     const { user } = useContext(AuthContext)
@@ -17,7 +17,7 @@ export default function CommentButton({ post: { body, createdAt, id, username, l
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [comment, setComment] = useState("")
   
-    const [submitComment] = useMutation(SUBMIT_COMMENT_MUTATION, {
+    const [submitComment] = useMutation(CREATE_COMMENT_MUTATION, {
       update() {
         setComment("") // set the comment back as empty
         commentInputRef.current.blur() // unfocus from the comment textbox

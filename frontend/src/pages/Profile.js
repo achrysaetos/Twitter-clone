@@ -4,15 +4,14 @@ import { VStack, Spinner, Flex, Text, Box } from "@chakra-ui/react"
 
 import { AuthContext } from "../context/auth"
 import PostCard from "../components/PostCard"
-import UserProfile from "../components/User"
+import User from "../components/User"
 import Follows from "../components/Follows"
 import { FETCH_POSTS_QUERY } from "../graphql/FETCH_POSTS_QUERY"
 
 export default function Profile(props) {
-  const target_username = props.match.params.target_username
-  console.log(props)
   const { user } = useContext(AuthContext)
   const { loading, data } = useQuery(FETCH_POSTS_QUERY)
+  const target_username = props.match.params.target_username
 
   return (
     <Flex justifyContent="center">
@@ -31,7 +30,7 @@ export default function Profile(props) {
       </VStack>
       
       <VStack mx={2} spacing={4}>
-        {user && <UserProfile user={user}/>}
+        {user && <User user={user}/>}
         <Follows user={user}/>
       </VStack>
     </Flex>

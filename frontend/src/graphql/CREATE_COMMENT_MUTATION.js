@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-export const SUBMIT_COMMENT_MUTATION = gql`
+export const CREATE_COMMENT_MUTATION = gql`
   mutation($postId: String!, $body: String!) {
     createComment(postId: $postId, body: $body) {
       id

@@ -18,7 +18,7 @@ export default function PostCard({
     <Box p={12} my={3} minW="550px" maxW="550px" borderWidth={1} borderRadius={12} boxShadow="sm">
       <Flex align="baseline" justify="space-between">
         <Flex align="baseline">
-          <Text textTransform="uppercase" fontSize="lg" fontWeight="bold" color="teal.500" as={ProfileLink} to="/profile">
+          <Text textTransform="uppercase" fontSize="lg" fontWeight="bold" color="teal.500" as={ProfileLink} to={`/${username}`}>
             {username}
           </Text>
           <Text ml={1} fontSize="lg" fontWeight="light">

@@ -13,7 +13,7 @@ export default function User({ user }){
     <Box p={12} minW="325px" maxW="325px" h="400px" borderWidth={1} borderRadius={12} boxShadow="sm">
       <Flex direction="column" align="center">
         <Avatar size="2xl" name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
-        <Text mb={3} mt={6} fontSize="2xl" fontWeight="semibold" color="teal.500" as={ProfileLink} to="/profile"> 
+        <Text mb={3} mt={6} fontSize="2xl" fontWeight="semibold" color="teal.500" as={ProfileLink} to={`/${user.username}`}> 
           @{data.getUser.username} 
         </Text>
         <Text mb={3} fontSize="xl" fontWeight="light" > 

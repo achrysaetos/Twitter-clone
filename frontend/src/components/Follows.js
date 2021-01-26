@@ -18,13 +18,13 @@ export default function Follows({user}){
 
         <TabPanels>
           <TabPanel>
-            {data?.getUser.following.map((user) => 
+            {data?.getUser.following.map((target) => 
               <>
                 <Flex align="center">
                   <Avatar size="lg" name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
                   <Box ml={4}>
-                    <Text fontSize="lg" fontWeight="semibold" color="teal.500" as={ProfileLink} to={`/profile/${user.username}`}>{user.username}</Text>
-                    <Text fontSize="lg" fontWeight="light">@{user.username}</Text>
+                    <Text fontSize="lg" fontWeight="semibold" color="teal.500" as={ProfileLink} to={`/${target.username}`}>{target.username}</Text>
+                    <Text fontSize="lg" fontWeight="light">@{target.username}</Text>
                   </Box>
                 </Flex>
                 <Divider my={2}/>
@@ -33,13 +33,13 @@ export default function Follows({user}){
           </TabPanel>
 
           <TabPanel>
-            {data?.getUser.followers.map((user) => 
+            {data?.getUser.followers.map((target) => 
               <>
                 <Flex align="center">
                   <Avatar size="lg" name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
                   <Box ml={4}>
-                    <Text fontSize="lg" fontWeight="semibold" color="teal.500" as={ProfileLink} to={`/profile/${user.username}`}>{user.username}</Text>
-                    <Text fontSize="lg" fontWeight="light">@{user.username}</Text>
+                    <Text fontSize="lg" fontWeight="semibold" color="teal.500" as={ProfileLink} to={`/${target.username}`}>{target.username}</Text>
+                    <Text fontSize="lg" fontWeight="light">@{target.username}</Text>
                   </Box>
                 </Flex>
                 <Divider my={2}/>

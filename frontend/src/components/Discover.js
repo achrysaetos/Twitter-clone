@@ -12,18 +12,17 @@ export default function Discover(){
     <Box p={12} minW="325px" maxW="325px" borderWidth={1} borderRadius={12} boxShadow="sm">
       <Text fontSize="xl" fontWeight="bold">You might like</Text>
       <Divider my={2}/>
-      {data.getUsers &&
-        data.getUsers.map((user) => 
-          <>
-            <Flex align="center">
-              <Avatar size="lg" name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
-              <Box ml={4}>
-                <Text fontSize="lg" fontWeight="semibold" color="teal.500" as={ProfileLink} to="/profile">{user.username}</Text>
-                <Text fontSize="lg" fontWeight="light">@{user.username}</Text>
-              </Box>
-            </Flex>
-            <Divider my={2}/>
-          </>
+      {data?.getUsers.map((target) => // same as data.getUsers && data.getUsers.map
+        <>
+          <Flex align="center">
+            <Avatar size="lg" name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
+            <Box ml={4}>
+              <Text fontSize="lg" fontWeight="semibold" color="teal.500" as={ProfileLink} to={`/${target.username}`}>{target.username}</Text>
+              <Text fontSize="lg" fontWeight="light">@{target.username}</Text>
+            </Box>
+          </Flex>
+          <Divider my={2}/>
+        </>
       )}
     </Box>
   )
