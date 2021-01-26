@@ -7,6 +7,7 @@ import "semantic-ui-css/semantic.min.css"
 import "./App.css"
 import { AuthProvider } from "./context/auth"
 import AuthRoute from "./util/AuthRoute"
+import AuthRouteProfile from "./util/AuthRouteProfile"
 import { theme } from "./theme"
 
 import MenuBar from "./components/MenuBar"
@@ -24,7 +25,7 @@ export default function App() {
           <Container> {/* semantic ui class to create margins */}
             <MenuBar />
             <Route exact path="/" component={Home} />
-            <Route exact path="/:target_username" component={Profile} />
+            <AuthRouteProfile exact path="/:target_username" component={Profile} /> {/* render component if user is logged in */}
             <AuthRoute exact path="/login" component={Login} /> {/* redirect to home if user is logged in */}
             <AuthRoute exact path="/register" component={Register} /> {/* redirect to home if user is logged in */}
           </Container>

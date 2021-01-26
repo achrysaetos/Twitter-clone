@@ -43,7 +43,7 @@ export default function MenuBar() {
               <MenuItem as={ProfileLink} to={`/${user.username}`}>Settings</MenuItem>
             </MenuGroup>
             <MenuDivider/>
-            <MenuItem onClick={logout} as={ProfileLink} to="/home">Sign Out</MenuItem>
+            <MenuItem onClick={logout} as={Link} to="/">Sign Out</MenuItem>
           </MenuList>
         </Menu>
       </Flex>
