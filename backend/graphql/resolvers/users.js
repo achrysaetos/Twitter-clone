@@ -33,6 +33,19 @@ module.exports = {
       } catch (err) {
         throw new Error(err)
       }
+    },
+
+    async getUser_from_username(_, { username }) {
+      try {
+        const user = await User.findOne({username: username})
+        if (user) {
+          return user
+        } else {
+          throw new Error("User not found")
+        }
+      } catch (err) {
+        throw new Error(err)
+      }
     }
   },
 
