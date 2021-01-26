@@ -33,6 +33,13 @@ module.exports = gql`
     token: String!
     username: String!
     createdAt: String!
+    following: [Follow]!
+    followers: [Follow]!
+  }
+  type Follow {
+    id: ID!
+    createdAt: String!
+    username: String!
   }
   input RegisterInput {
     username: String!
@@ -55,5 +62,6 @@ module.exports = gql`
     createComment(postId: String!, body: String!): Post!
     deleteComment(postId: ID!, commentId: ID!): Post!
     likePost(postId: ID!): Post!
+    followUser(userId: ID!, target_username: String!): User!
   }
 `

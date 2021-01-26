@@ -1,9 +1,8 @@
 import React, { useContext } from "react"
-import { Link } from "react-router-dom"
+import { Link, Link as ProfileLink } from "react-router-dom"
 import { Box, Heading, Flex, Text, Button } from "@chakra-ui/react"
 import { Menu, MenuButton, MenuList, MenuItem, MenuGroup, MenuDivider } from "@chakra-ui/react"
 import { ChevronDownIcon } from "@chakra-ui/icons"
-import { Link as ProfileLink } from "react-router-dom"
 
 import { AuthContext } from "../context/auth"
 import NotificationBtn from "./menubar/NotificationBtn"

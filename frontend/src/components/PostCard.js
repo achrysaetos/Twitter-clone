@@ -1,7 +1,7 @@
 import React, { useContext } from "react" 
+import { Link as ProfileLink } from "react-router-dom"
 import { Box, Flex, Text, Divider } from "@chakra-ui/react"
 import moment from "moment"
-import { Link as ProfileLink } from "react-router-dom"
 
 import { AuthContext } from "../context/auth"
 import LikeButton from "./postcard/LikeButton"

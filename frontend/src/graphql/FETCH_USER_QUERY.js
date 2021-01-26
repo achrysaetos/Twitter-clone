@@ -7,6 +7,16 @@ export const FETCH_USER_QUERY = gql`
       email
       username
       createdAt
+      following{
+        id
+        username
+        createdAt
+      }
+      followers{
+        id
+        username
+        createdAt
+      }
     }
   }
 `;
