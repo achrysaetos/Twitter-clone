@@ -1,7 +1,7 @@
 import React from "react"
+import { Link as ProfileLink } from "react-router-dom"
 import { useQuery } from "@apollo/react-hooks"
 import { Box, Avatar, Text, Divider, Flex } from "@chakra-ui/react"
-import { Link as ProfileLink } from "react-router-dom"
 
 import { FETCH_USERS_QUERY } from "../graphql/FETCH_USERS_QUERY"
 
@@ -10,7 +10,7 @@ export default function Discover(){
 
   return loading ? "loading" : (
     <Box p={12} minW="325px" maxW="325px" borderWidth={1} borderRadius={12} boxShadow="sm">
-      <Text fontSize="xl" fontWeight="bold">You might like</Text>
+      <Text fontSize="xl" fontWeight="bold" mb={3}>Who to follow</Text>
       <Divider my={2}/>
       {data?.getUsers.map((target) => // same as data.getUsers && data.getUsers.map
         <Box key={target.id}>

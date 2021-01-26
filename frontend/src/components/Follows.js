@@ -5,8 +5,8 @@ import { Box, Avatar, Text, Divider, Flex, Tabs, TabList, TabPanels, Tab, TabPan
 
 import { FETCH_USER_QUERY } from "../graphql/FETCH_USER_QUERY"
 
-export default function Follows({user}){
-  const { loading, data } = useQuery(FETCH_USER_QUERY, { variables: { userId: user.id }})
+export default function Follows({target_user}){
+  const { loading, data } = useQuery(FETCH_USER_QUERY, { variables: { userId: target_user.id }})
 
   return loading ? "loading" : (
     <Box p={12} minW="325px" maxW="325px" borderWidth={1} borderRadius={12} boxShadow="sm">
@@ -27,7 +27,6 @@ export default function Follows({user}){
                     <Text fontSize="lg" fontWeight="light">@{target.username}</Text>
                   </Box>
                 </Flex>
-
                 <Divider my={2}/>
               </Box>
             )}
@@ -43,7 +42,6 @@ export default function Follows({user}){
                     <Text fontSize="lg" fontWeight="light">@{target.username}</Text>
                   </Box>
                 </Flex>
-                
                 <Divider my={2}/>
               </Box>
             )}

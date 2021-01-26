@@ -38,9 +38,9 @@ export default function MenuBar() {
           </MenuButton>
           <MenuList>
             <MenuGroup>
-              <MenuItem as={ProfileLink} to="/profile">Account</MenuItem>
-              <MenuItem as={ProfileLink} to="/profile">Help </MenuItem>
-              <MenuItem as={ProfileLink} to="/profile">Settings</MenuItem>
+              <MenuItem as={ProfileLink} to={`/${user.username}`}>Account</MenuItem>
+              <MenuItem as={ProfileLink} to={`/${user.username}`}>Help </MenuItem>
+              <MenuItem as={ProfileLink} to={`/${user.username}`}>Settings</MenuItem>
             </MenuGroup>
             <MenuDivider/>
             <MenuItem onClick={logout} as={ProfileLink} to="/home">Sign Out</MenuItem>
