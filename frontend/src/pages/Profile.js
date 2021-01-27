@@ -14,7 +14,7 @@ export default function Profile(props) {
   const { loading: loading_post, data: post_data } = useQuery(FETCH_POSTS_QUERY)
   const { loading: loading_user, data: user_data } = useQuery(FETCH_USER_FROM_USERNAME, { variables: { username: user.username }})
   
-  const target_username = props.match.params.target_username
+  const target_username = props.match.params.target_username // props from the address bar
   const { loading: loading_target_user, data: target_user_data } = useQuery(FETCH_USER_FROM_USERNAME, { variables: { username: target_username }})
 
   return (
@@ -29,7 +29,7 @@ export default function Profile(props) {
       
       {loading_target_user || loading_user ? <Spinner size="xl" /> : (
         <VStack mx={2} spacing={4}>
-          {user && <User user={user_data.getUser_from_username} target_user={target_user_data?.getUser_from_username}/>}
+          <User user={user_data.getUser_from_username} target_user={target_user_data?.getUser_from_username}/>
           <Follows target_user={target_user_data?.getUser_from_username}/>
         </VStack>
       )}

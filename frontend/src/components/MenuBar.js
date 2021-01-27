@@ -11,13 +11,6 @@ import ChatBtn from "./menubar/ChatBtn"
 
 export default function MenuBar() {
   const { user, logout } = useContext(AuthContext)
-  
-  /* Set active tab in navbar
-  const pathname = window.location.pathname // the location object's url port
-  const path = pathname === "/" ? "home" : pathname.substr(1) // path = name in pathname "/[name]"
-  const [activeItem, setActiveItem] = useState(path)
-  const handleItemClick = (e, { name }) => setActiveItem(name) // set the active item where the name matches the path
-  */
 
   const menuBar = user ? (
     <Flex as="nav" align="center" justify="space-between" wrap="wrap" w="100%" mb={6} p={6}>

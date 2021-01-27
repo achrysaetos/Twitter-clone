@@ -41,14 +41,18 @@ export default function User({ user, target_user }){
           Joined: {moment(data.getUser.createdAt).format("LL")} 
         </Text>
 
-        {followed ? (
-          <Button colorScheme="teal" variant="outline" width="full" mt={6} size="lg" onClick={followUser}>
-            Following
-          </Button>
-        ) : (
-          <Button colorScheme="teal" variant="outline" width="full" mt={6} size="lg" onClick={followUser}>
-            Follow
-          </Button>
+        {target_user.username === user.username ? (
+          ""
+        ):(
+          followed ? (
+            <Button colorScheme="teal" variant="outline" width="full" mt={6} size="lg" onClick={followUser}>
+              Following
+            </Button>
+          ) : (
+            <Button colorScheme="teal" variant="outline" width="full" mt={6} size="lg" onClick={followUser}>
+              Follow
+            </Button>
+          )
         )}
       </Flex>
     </Box>

@@ -15,6 +15,7 @@ export default function Home() {
   const { loading, data } = useQuery(FETCH_POSTS_QUERY)
   const { loading: loading_users, data: users_data } = useQuery(FETCH_USERS_QUERY)
   const { loading: loading_user, data: user_data } = useQuery(FETCH_USER_QUERY, { variables: { userId: user?.id }})
+
   let following = []
   if (!user){
     following = loading_users ? [] : users_data?.getUsers.map((x) => x.username)
@@ -28,7 +29,7 @@ export default function Home() {
         {user && <PostForm />}
         {loading ? <Spinner size="xl" /> : (
           data?.getPosts.filter((target) => (
-            following.indexOf(target.username) !== -1 || target.username === user.username) // filter based on usernames in the following array
+            following.indexOf(target.username) !== -1 || target.username === user?.username) // filter based on usernames in the following array
           ).map((post) => (
             <PostCard post={post} key={post.id}/>
           ))
@@ -36,7 +37,7 @@ export default function Home() {
       </VStack>
       
       <VStack mx={2} spacing={4}>
-        <Discover />
+        {user && !loading_user ? <Discover user_data={user_data} /> : <Discover />}
       </VStack>
     </Flex>
   )

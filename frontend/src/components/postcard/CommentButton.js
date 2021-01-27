@@ -1,10 +1,10 @@
 import React, { useContext, useState, useRef } from "react"
+import { Link as ProfileLink } from "react-router-dom"
 import { useMutation } from "@apollo/react-hooks"
 import { Box, Flex, Text, Divider, Button, Input, FormControl, useDisclosure } from "@chakra-ui/react"
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react"
 import { ChatIcon } from "@chakra-ui/icons"
 import moment from "moment"
-import { Link as ProfileLink } from "react-router-dom"
 
 import { AuthContext } from "../../context/auth"
 import LikeButton from "./LikeButton"
@@ -35,7 +35,7 @@ export default function CommentButton({ post: { body, createdAt, id, username, l
         <ModalContent>
           <ModalHeader>
             <Flex align="baseline">
-              <Text textTransform="uppercase" fontSize="xl" fontWeight="bold" color="teal.500" as={ProfileLink} to="/profile">
+              <Text textTransform="uppercase" fontSize="xl" fontWeight="bold" color="teal.500" as={ProfileLink} to={`/${username}`}>
                 {username}
               </Text>
               <Text ml={1} fontSize="xl" fontWeight="light">
@@ -93,7 +93,7 @@ export default function CommentButton({ post: { body, createdAt, id, username, l
               {comments.map((comment) => (
                 <Box p={3} my={3} borderWidth={1} borderRadius={6} boxShadow="sm" key={comment.id}>
                   <Flex align="baseline">
-                    <Text textTransform="uppercase" fontSize="lg" fontWeight="bold" color="teal.500" as={ProfileLink} to="/profile">
+                    <Text textTransform="uppercase" fontSize="lg" fontWeight="bold" color="teal.500" as={ProfileLink} to={`/${comment.username}`}>
                       {comment.username}
                     </Text>
                     <Text ml={1} fontSize="lg" fontWeight="light">
