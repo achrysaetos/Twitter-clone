@@ -13,3 +13,10 @@ A fully functional social media web app, built with React, GraphQL, MongoDB, and
 ## To Do
 
 Add live chat functionality
+
+
+## Screenshots ##
+
+![](/screenshots/1.png?raw=true)
+![](/screenshots/2.png?raw=true)
+![](/screenshots/3.png?raw=true)
