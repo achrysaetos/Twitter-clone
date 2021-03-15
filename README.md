@@ -13,7 +13,7 @@ Functionalities: create/delete posts, add likes/comments, follow/unfollow users.
 3. Go to http://localhost:3000 (your GraphQL playground is up at localhost:5000).
 
 
-**IDEAS FOR EXTRA FEATURES**
+**IDEAS FOR EXTRA FEATURES:**\
 Add live chat (messenging) functionality using socketIO
 
 
