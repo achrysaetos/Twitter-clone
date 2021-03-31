@@ -1,6 +1,6 @@
-# Social Media App
+# Twitter Clone
 
-A fully functional social media web app, inspired by Twitter. Built with React, GraphQL, MongoDB, and Node.
+A fully functional social networking web app, inspired by Twitter. Built with React, GraphQL, MongoDB, and Node.
 
 Functionalities: create/delete posts, add likes/comments, follow/unfollow users.
 
