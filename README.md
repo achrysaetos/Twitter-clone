@@ -1,6 +1,6 @@
-# Twitter Clone
+# Social Media App
 
-A fully functional Twitter clone, built with Ruby on Rails. 
+A simple social media app, built with Ruby on Rails. 
 
 *Users can create/edit/delete their own posts, add likes/comments to existing posts, and retweet other users’ posts.*
 
