@@ -1,11 +1,10 @@
 import React, { useContext } from "react"
-import { useMutation } from "@apollo/react-hooks"
-import { Flex, Text, Button, FormControl, useDisclosure, IconButton, Input } from "@chakra-ui/react"
+import { Text, useDisclosure, IconButton } from "@chakra-ui/react"
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react"
 import { AddIcon } from "@chakra-ui/icons"
 
 import { AuthContext } from "../../context/auth"
-import { useForm } from "../../util/hooks"
+import PostForm from "../PostForm"
 
 export default function AddBtn() {
     const { user } = useContext(AuthContext)
@@ -14,7 +13,7 @@ export default function AddBtn() {
   return (
     <>
       <IconButton variant="outline" colorScheme="teal" icon={<AddIcon />} size="lg" mr={6} onClick={onOpen}/>
-      <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom" size="xl">
+      <Modal onClose={onClose} isOpen={isOpen} motionPreset="slideInBottom" size="2xl">
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>
@@ -23,6 +22,7 @@ export default function AddBtn() {
           </ModalHeader>
 
           <ModalBody>
+            {user && <PostForm />}
           </ModalBody>
           
           <ModalFooter>
